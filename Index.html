@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prisha's Cute Cinematic Scrapbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Quicksand',sans-serif;
+background:linear-gradient(to bottom,#d9f3ff,#fffdf6,#f5ffe8);
+color:#2d3748;
+overflow-x:hidden;
+}
+
+.hero{
+min-height:100vh;
+padding:60px 20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:
+linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.8)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+inset:0;
+backdrop-filter:blur(2px);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:950px;
+}
+
+.title{
+font-size:4.5rem;
+font-family:'Patrick Hand',cursive;
+color:#14532d;
+text-shadow:3px 3px 0px white;
+margin-bottom:20px;
+}
+
+.subtitle{
+background:rgba(255,255,255,0.8);
+padding:25px;
+border-radius:30px;
+font-size:1.2rem;
+line-height:1.8;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.stickers{
+font-size:2rem;
+margin-top:20px;
+}
+
+.container{
+max-width:1250px;
+margin:auto;
+padding:60px 20px;
+}
+
+.scrapbook-card{
+background:white;
+border-radius:35px;
+padding:35px;
+margin-bottom:40px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+position:relative;
+overflow:hidden;
+}
+
+.scrapbook-card::before{
+content:'';
+position:absolute;
+top:-40px;
+right:-40px;
+width:120px;
+height:120px;
+background:#fef08a;
+border-radius:50%;
+opacity:0.4;
+}
+
+h2{
+font-size:2.5rem;
+margin-bottom:20px;
+font-family:'Patrick Hand',cursive;
+color:#0f766e;
+}
+
+.timeline{
+display:grid;
+gap:18px;
+}
+
+.timeline-item{
+background:#f0fdfa;
+padding:22px;
+border-radius:20px;
+border-left:8px solid #14b8a6;
+line-height:1.8;
+}
+
+.timeline-item h3{
+margin-bottom:8px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+}
+
+.polaroid{
+background:white;
+padding:12px 12px 50px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+transform:rotate(-2deg);
+transition:0.4s ease;
+position:relative;
+}
+
+.polaroid:nth-child(even){
+transform:rotate(2deg);
+}
+
+.polaroid:hover{
+transform:scale(1.04) rotate(0deg);
+}
+
+.polaroid img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:12px;
+}
+
+.caption{
+position:absolute;
+bottom:12px;
+left:15px;
+font-family:'Patrick Hand',cursive;
+font-size:1.2rem;
+color:#444;
+}
+
+.quote{
+font-size:2rem;
+text-align:center;
+font-family:'Patrick Hand',cursive;
+line-height:1.8;
+background:linear-gradient(to right,#dcfce7,#dbeafe,#fae8ff);
+padding:40px;
+border-radius:30px;
+}
+
+.people-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.person{
+background:#fff7ed;
+padding:22px;
+border-radius:22px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,0.05);
+}
+
+.person .emoji{
+font-size:3rem;
+margin-bottom:12px;
+}
+
+.memory-box{
+background:#ecfccb;
+padding:25px;
+border-radius:25px;
+line-height:1.9;
+font-size:1.1rem;
+margin-top:20px;
+display:none;
+}
+
+button{
+background:#14b8a6;
+color:white;
+border:none;
+padding:16px 30px;
+border-radius:999px;
+font-size:1rem;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s ease;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#0f766e;
+}
+
+.footer{
+background:#14532d;
+color:white;
+padding:50px 20px;
+text-align:center;
+font-size:1.1rem;
+margin-top:50px;
+}
+
+.cloud{
+position:absolute;
+font-size:3rem;
+animation:float 20s linear infinite;
+opacity:0.7;
+}
+
+.cloud1{top:10%;left:-10%;}
+.cloud2{top:30%;left:-20%;animation-duration:26s;}
+.cloud3{top:60%;left:-15%;animation-duration:30s;}
+
+@keyframes float{
+from{transform:translateX(0);}
+to{transform:translateX(140vw);}
+}
+
+@media(max-width:768px){
+.title{
+font-size:2.8rem;
+}
+
+.subtitle{
+font-size:1rem;
+}
+
+.quote{
+font-size:1.5rem;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="cloud cloud1">☁️</div>
+<div class="cloud cloud2">☁️</div>
+<div class="cloud cloud3">☁️</div>
+
+<div class="hero-content">
+<div class="title">🌿 Prisha's Ooty & Coonoor Scrapbook 🌿</div>
+
+<div class="subtitle">
+Hi Family 💖<br><br>
+I am <b>8-year-old Prisha</b> and this is my magical travel scrapbook from my trip to <b>Ooty & Coonoor</b> with my <b>Aaji</b>, <b>Mama</b>, <b>Mami</b>, and my sister <b>Saanvi Didu</b> ✨<br><br>
+We saw giant mountains, tea gardens, forests, ducks, colorful flowers, floating clouds and SO MUCH fog ☁️🌸🌲<br><br>
+Sometimes it felt like we entered a Pixar movie 🎬
+</div>
+
+<div class="stickers">🌈 🚂 ☁️ 🌿 📸 💕</div>
+</div>
+</div>
+
+<div class="container">
+
+<div class="scrapbook-card">
+<h2>🚂 Adventure Timeline</h2>
+
+<div class="timeline">
+<div class="timeline-item">
+<h3>☁️ Reached Coonoor</h3>
+The air was freezing and misty. Clouds were literally floating beside us.
+</div>
+
+<div class="timeline-item">
+<h3>🍃 Tea Gardens Everywhere</h3>
+The hills looked like giant green blankets made of tea leaves.
+</div>
+
+<div class="timeline-item">
+<h3>⛰️ Lamb's Rock</h3>
+The mountains disappeared into the fog and it felt like we were standing inside the sky.
+</div>
+
+<div class="timeline-item">
+<h3>🌲 Forest Walks</h3>
+We walked through magical forest paths with giant trees and twisty roots.
+</div>
+
+<div class="timeline-item">
+<h3>🌸 Ooty Botanical Garden</h3>
+There were flowers, ducks, bridges, jumping photos and beautiful gardens everywhere.
+</div>
+</div>
+</div>
+
+<div class="scrapbook-card">
+<h2>📖 Day 1 — Coonoor Clouds & Tea Gardens ☁️🍃</h2>
+<p style="margin-bottom:25px;line-height:1.8;font-size:1.1rem;">
+We reached Coonoor and everything looked magical. The hills were covered in clouds and the tea gardens looked endless 🌿
+</p>
+
+<div class="gallery">
+<div class="polaroid">
+<img src="IMG_7008.jpeg" alt="Tea Gardens">
+<div class="caption">Tea garden magic 🍃</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7032.jpeg" alt="Lamb's Rock">
+<div class="caption">Lamb's Rock 🚂☁️</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7035.jpeg" alt="Mountain View">
+<div class="caption">Cloudy mountains ⛰️</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7057.jpeg" alt="Forest Walk">
+<div class="caption">Forest adventure 🌲</div>
+</div>
+</div>
+</div>
+
+<div class="scrapbook-card">
+<h2>📖 Day 2 — Ooty Garden Fairytale 🌸✨</h2>
+<p style="margin-bottom:25px;line-height:1.8;font-size:1.1rem;">
+This day felt like we entered a storybook. There were flowers everywhere, little bridges, ducks and beautiful gardens 💕
+</p>
+
+<div class="gallery">
+<div class="polaroid">
+<img src="IMG_7063.jpeg" alt="Jumping Photo">
+<div class="caption">Super jump mode 😂</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7099.jpeg" alt="Bridge Photo">
+<div class="caption">Bridge adventures 🌸</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7105.jpeg" alt="Family Photo">
+<div class="caption">Family flower picture 💖</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7108.jpeg" alt="Night Garden">
+<div class="caption">Night garden fairyland ✨</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7086.jpeg" alt="World Garden">
+<div class="caption">World map garden 🌍</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7094.jpeg" alt="Duck Garden">
+<div class="caption">Duck watching 🦆</div>
+</div>
+</div>
+</div>
+
+<div class="scrapbook-card">
+<h2>📖 Day 3 — Cozy Family Moments 💕</h2>
+<p style="margin-bottom:25px;line-height:1.8;font-size:1.1rem;">
+The best part of the trip was spending time with family, laughing together and taking cute photos everywhere 📸
+</p>
+
+<div class="gallery">
+<div class="polaroid">
+<img src="IMG_7111.jpeg" alt="Sisters Photo">
+<div class="caption">Sister time 👭</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7114.jpeg" alt="Cute Pose">
+<div class="caption">Cute scrapbook pose 🎀</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7112.jpeg" alt="Family Garden">
+<div class="caption">Aaji & family 💖</div>
+</div>
+
+<div class="polaroid">
+<img src="IMG_7097.jpeg" alt="Jump Bridge">
+<div class="caption">Flying on the bridge ☀️</div>
+</div>
+</div>
+
+</div>
+
+<div class="polaroid">
+<div style="display:flex;gap:10px;">
+<img src="IMG_7296.jpeg" alt="Gateway Coonoor" style="width:50%;border-radius:12px;object-fit:cover;">
+<img src="IMG_7295.jpeg" alt="Gateway Coonoor View" style="width:50%;border-radius:12px;object-fit:cover;">
+</div>
+<div class="caption">Gateway Coonoor 🏔️🌸🥾☀️ </div>
+</div>
+
+
+<div class="polaroid">
+<div style="display:flex;gap:10px;">
+<img src="IMG_7150.jpeg" alt="Toy Train" style="width:50%;border-radius:12px;object-fit:cover;">
+<img src="IMG_7146.jpeg" alt="Toy Train View" style="width:50%;border-radius:12px;object-fit:cover;">
+</div>
+<div class="caption">Toy Train Adventure 🎟️🚂👧👦</div>
+</div>
+
+<div class="polaroid">
+<div style="display:flex;gap:10px;">
+<img src="IMG_7206.jpeg" alt="Rose Garden" style="width:50%;border-radius:12px;object-fit:cover;">
+<img src="IMG_7211.jpeg" alt="Rose Garden View" style="width:50%;border-radius:12px;object-fit:cover;">
+</div>
+<div class="caption">Aaji's favorite - Rose Garden 🌹⛲🌿</div>
+</div>
+
+
+<div class="polaroid">
+<div style="display:flex;gap:10px;">
+<img src="IMG_7294.jpeg" alt="Rose Garden" style="width:50%;border-radius:12px;object-fit:cover;">
+<img src="IMG_7300.jpeg" alt="Rose Garden View" style="width:50%;border-radius:12px;object-fit:cover;">
+</div>
+<div class="caption">Bollywood style photos 🏔️💃🧣❄️🎬</div>
+</div>
+
+
+
+<div class="scrapbook-card quote">
+“The mountains were wearing clouds like fluffy blankets.” ☁️⛰️<br><br>
+— Prisha ✨
+</div>
+
+<div class="scrapbook-card">
+<h2>💖 My Travel Team</h2>
+
+<div class="people-grid">
+<div class="person">
+<div class="emoji">👵</div>
+<h3>Aaji</h3>
+<p>The flower garden queen 🌸</p>
+</div>
+
+<div class="person">
+<div class="emoji">🧑</div>
+<h3>Mama</h3>
+<p>Adventure & driving expert 🚗</p>
+</div>
+
+<div class="person">
+<div class="emoji">👩</div>
+<h3>Mami</h3>
+<p>Smile and happiness manager ✨</p>
+</div>
+
+<div class="person">
+<div class="emoji">👭</div>
+<h3>Saanvi Didu</h3>
+<p>Best sister and photo buddy 💕</p>
+</div>
+</div>
+</div>
+
+<div class="scrapbook-card">
+<h2>🎀 Secret Memory Button</h2>
+
+<button onclick="toggleMemory()">Open Secret Memory ✨</button>
+
+<div class="memory-box" id="memoryBox">
+My favorite part was jumping on the bridge and at Lamb's Rock because everyone laughed and cheered for me 😄💖<br><br>
+I also loved the ducks, flowers and foggy mountains. The clouds looked so close that I wanted to grab one and keep it in my pocket ☁️✨
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+Made with love by Prisha 💕<br>
+Ooty & Coonoor • Family Adventure Scrapbook 🌿✨
+</div>
+
+<script>
+function toggleMemory(){
+const box=document.getElementById('memoryBox');
+if(box.style.display==='block'){
+box.style.display='none';
+}else{
+box.style.display='block';
+}
+}
+</script>
+
+</body>
+</html>
